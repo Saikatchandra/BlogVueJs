@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    ashdlfsldfjsljdfl;s 
+                    ashsdf
                 </div>
 
                 <div class="links">
