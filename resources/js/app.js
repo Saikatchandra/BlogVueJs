@@ -2,6 +2,17 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
+//Support VueX
+import Vuex from "vuex"
+Vue.use(Vuex)
+
+import storeData from './store/index'
+
+const store = new Vuex.Store(
+         
+        storeData    
+  )
+
 //Vue Router
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -50,5 +61,6 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    mode: 'history'
+    mode: 'hash',
+    store
 });
