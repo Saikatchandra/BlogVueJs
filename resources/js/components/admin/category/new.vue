@@ -57,6 +57,13 @@
       			 .then((res)=>{
                     // console.log(res.data)
                     this.$router.push('category-list')
+
+                    Toast.fire({
+						  icon: 'success',
+						  title: 'Signed in successfully'
+						})
+
+
       			 })
       			 .catch(()=>{
 
