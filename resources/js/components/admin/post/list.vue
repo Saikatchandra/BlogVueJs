@@ -73,7 +73,8 @@
         },
         deletePost(id){
           // console.log(id)
-          axios.get('/post/'+id)
+          axios.get('/del-post/'+id)
+            // axios.get(`post/${this.$route.params.postId}`)
              .then(()=>{
                 this.$store.dispatch('allPost')
                  Toast.fire({

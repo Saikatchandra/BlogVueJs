@@ -4795,8 +4795,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this3 = this;
 
       // console.log(this.form.description)
-      this.form.post('/update-post').then(function () {
-        _this3.$router.push('post-list');
+      this.form.post("update-post/".concat(this.$route.params.postId)).then(function () {
+        _this3.$router.push('/post-list');
 
         Toast.fire({
           icon: 'success',
@@ -4903,7 +4903,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // console.log(id)
-      axios.get('/post/' + id).then(function () {
+      axios.get('/del-post/' + id) // axios.get(`post/${this.$route.params.postId}`)
+      .then(function () {
         _this.$store.dispatch('allPost');
 
         Toast.fire({

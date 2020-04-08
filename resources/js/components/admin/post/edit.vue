@@ -114,9 +114,9 @@
 			},
 			updatePost(){
 				// console.log(this.form.description)
-				this.form.post('/update-post')
+				this.form.post(`update-post/${this.$route.params.postId}`)
 				  .then(()=>{
-				  		this.$router.push('post-list')
+				  		this.$router.push('/post-list')
 							Toast.fire({
           						  icon: 'success',
           						  title: 'Post update successfully'
