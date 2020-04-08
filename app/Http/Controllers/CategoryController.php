@@ -43,4 +43,14 @@ class CategoryController extends Controller
     	],200);
 
     }
+
+    public function update_category(Request $request, $id){
+        // return $id;
+         $this->validate($request,[
+            'cat_name'=>'required|min:2|max:50'
+        ]);
+       $category = Category::find($id);
+       $category->cat_name = $request->cat_name;
+       $category->save();
+    }
 }

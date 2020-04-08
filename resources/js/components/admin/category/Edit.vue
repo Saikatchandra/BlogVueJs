@@ -13,7 +13,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form"  @click.prevent="addCategory()">
+              <form role="form"  @submit.prevent="updateCategory()">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="categoryId">Edit Category Name</label>
@@ -60,21 +60,18 @@
 			}
 		},
 		methods:{
-			addCategory(){
+			updateCategory(){
 				// console.log('Ok')
 				 // Submit the form via a POST request
-      			this.form.post('/add-category')
+      			this.form.post(`/update-category/${this.$route.params.categoryId}`)   //make this route in web.php
       			 .then((res)=>{
                     // console.log(res.data)
-                    this.$router.push('category-list')
-
-                    Toast.fire({
+                    this.$router.push('/category-list')
+                           Toast.fire({
           						  icon: 'success',
-          						  title: 'Category Added successfully'
+          						  title: 'Category Update successfully'
           						})
-
-
-      			 })
+                        })
       			 .catch(()=>{
 
       			 })
