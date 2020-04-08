@@ -11,7 +11,7 @@
               <h3 class="card-title">Post List</h3>
               <div class="text-right">
               	<button class="btn btn-info">
-                 <a href="">Add Post</a>	
+                 <router-link to="/add-post" style="color:#fff">Add Post</router-link>	
               	 </button>
               </div>
             </div>
