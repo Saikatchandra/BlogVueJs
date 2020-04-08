@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row justify-content-around">
                 <!-- left column -->
-		<div class="col-md-6">
+		<div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -20,7 +20,8 @@
                   </div>
                   <div class="form-group">
                     <label for="postId">Post Description</label>
-                    <textarea class="form-control" id="postId" placeholder="post description" v-model="form.description" name="description" :class="{ 'is-invalid': form.errors.has('description') }" > </textarea>
+                    <!-- <textarea class="form-control" id="postId" placeholder="post description" v-model="form.description" name="description" :class="{ 'is-invalid': form.errors.has('description') }" > </textarea> -->
+                    <markdown-editor v-model="form.description" height="70"></markdown-editor>
                     <has-error :form="form" field="description"></has-error>
                   </div>
                    <div class="form-group">
@@ -33,7 +34,8 @@
                       </div>
                   <div class="form-group">
                     <label for="postId">Post Image</label>
-                    <input name="photo" type="file" :class="{ 'is-invalid': form.errors.has('photo') }" >
+                    <input @change="showImage($event)" name="photo" type="file" :class="{ 'is-invalid': form.errors.has('photo') }" >
+                    <img :src="this.form.photo" alt="" width="60" height="70">
                     <has-error :form="form" field="photo"></has-error>
                   </div>
                   
@@ -80,7 +82,18 @@
 
 		},
 		methods:{
-			
+			showImage(event){
+				          // javascript filereader property and methods are decleared
+				let file = event.target.files[0];
+				 
+				  let reader = new FileReader();
+				  reader.onload = event=> {
+				   this.form.photo = event.target.result
+				    // console.log(e.target.result)
+				  };
+
+				  reader.readAsDataURL(file);
+			}
 
 		}
 	}
