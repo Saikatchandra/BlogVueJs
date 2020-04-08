@@ -34,4 +34,13 @@ class CategoryController extends Controller
          $category->delete();
          
     }
+
+    public function edit_category($id){
+    	// return $id;
+    	$category = Category::find($id);
+    	return response()->json([
+          'category'=> $category
+    	],200);
+
+    }
 }
