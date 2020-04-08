@@ -1987,7 +1987,21 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getCategory;
     }
   },
-  methods: {}
+  methods: {
+    deleteCategory: function deleteCategory(id) {
+      var _this = this;
+
+      // console.log(id)
+      axios.get('/category/' + id).then(function () {
+        _this.$store.dispatch('allCategory');
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Category deleted successfully'
+        });
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -59198,7 +59212,23 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(1, true)
+                        _c("td", [
+                          _c("a", { attrs: { href: "" } }, [_vm._v("Edit")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.deleteCategory(category.id)
+                                }
+                              }
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ])
                       ])
                     }),
                     0
@@ -59227,16 +59257,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "" } }, [_vm._v("Edit")]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "" } }, [_vm._v("Delete")])
     ])
   }
 ]
@@ -75638,8 +75658,7 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _store_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./store/index */ "./resources/js/store/index.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
-/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filter */ "./resources/js/filter.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vform */ "./node_modules/vform/dist/vform.common.js");
 /* harmony import */ var vform__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vform__WEBPACK_IMPORTED_MODULE_4__);
@@ -75655,10 +75674,7 @@ Vue.use(vuex__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store(_store_index__WEBPACK_IMPORTED_MODULE_1__["default"]); //Support Momemnt
 
-
-Vue.filter('timeFormat', function (arg) {
-  return moment__WEBPACK_IMPORTED_MODULE_2___default()(arg).format("MMM Do YY");
-}); //Vue Router
+ //Vue Router
 
 
 Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_3__["default"]); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
@@ -75986,6 +76002,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_master_vue_vue_type_template_id_58f54fed___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/filter.js":
+/*!********************************!*\
+  !*** ./resources/js/filter.js ***!
+  \********************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_1__);
+
+ // import Vue
+
+vue__WEBPACK_IMPORTED_MODULE_1___default.a.filter('timeFormat', function (arg) {
+  return moment__WEBPACK_IMPORTED_MODULE_0___default()(arg).format("MMM Do YYYY"); // vue filter use here
+});
 
 /***/ }),
 

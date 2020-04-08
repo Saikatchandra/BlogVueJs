@@ -34,7 +34,7 @@
                   <td>{{category.created_at | timeFormat }}</td>
                   <td>
                   	<a href="">Edit</a>
-                  	<a href="">Delete</a>
+                  	<a href="" @click.prevent="deleteCategory(category.id)">Delete</a>
                   </td>
                   
                 </tr>
@@ -61,7 +61,17 @@
        }
     },
     methods:{
-
+        deleteCategory(id){
+          // console.log(id)
+          axios.get('/category/'+id)
+             .then(()=>{
+                this.$store.dispatch('allCategory')
+                 Toast.fire({
+                        icon: 'success',
+                        title: 'Category deleted successfully'
+                      })
+             })
+        }
     }
 	}
 </script>

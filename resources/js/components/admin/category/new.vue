@@ -59,9 +59,9 @@
                     this.$router.push('category-list')
 
                     Toast.fire({
-						  icon: 'success',
-						  title: 'Category Added successfully'
-						})
+          						  icon: 'success',
+          						  title: 'Category Added successfully'
+          						})
 
 
       			 })

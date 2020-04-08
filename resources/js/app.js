@@ -14,10 +14,7 @@ const store = new Vuex.Store(
   )
 
 //Support Momemnt
-import moment from 'moment'
-Vue.filter('timeFormat',(arg)=>{
-	return moment(arg).format("MMM Do YY")
-})
+import filter from './filter'
 
 //Vue Router
 import VueRouter from 'vue-router'

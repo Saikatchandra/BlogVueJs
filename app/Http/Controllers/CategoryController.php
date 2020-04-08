@@ -27,4 +27,11 @@ class CategoryController extends Controller
             'categories'=>$categories
          ],200);
     }
+
+    public function del_category($id){
+    	 // return $id;
+         $category = Category::find($id);
+         $category->delete();
+         
+    }
 }
