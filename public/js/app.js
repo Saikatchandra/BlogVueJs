@@ -4767,6 +4767,19 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     ourImage: function ourImage(img) {
       return "uploadImage/" + img;
+    },
+    deletePost: function deletePost(id) {
+      var _this = this;
+
+      // console.log(id)
+      axios.get('/post/' + id).then(function () {
+        _this.$store.dispatch('allPost');
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Post deleted successfully'
+        });
+      });
     }
   }
 });
@@ -83217,7 +83230,23 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _vm._m(1, true)
+                        _c("td", [
+                          _c("a", { attrs: { href: "" } }, [_vm._v("Edit")]),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.deletePost(post.id)
+                                }
+                              }
+                            },
+                            [_vm._v("Delete")]
+                          )
+                        ])
                       ])
                     }),
                     0
@@ -83252,16 +83281,6 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Action")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { attrs: { href: "" } }, [_vm._v("Edit")]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "" } }, [_vm._v("Delete")])
     ])
   }
 ]

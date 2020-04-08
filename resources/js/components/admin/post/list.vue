@@ -41,7 +41,7 @@
                   <td>
                     <!-- //path initiated to route.js first -->
                   	<a href="">Edit</a> 
-                  	<a href="">Delete</a>
+                  	<a href="" @click.prevent='deletePost(post.id)'>Delete</a>
                   </td>
                   
                 </tr>
@@ -70,6 +70,17 @@
 		methods:{
         ourImage(img){
           return "uploadImage/"+img;
+        },
+        deletePost(id){
+          // console.log(id)
+          axios.get('/post/'+id)
+             .then(()=>{
+                this.$store.dispatch('allPost')
+                 Toast.fire({
+                        icon: 'success',
+                        title: 'Post deleted successfully'
+                      })
+             })
         }
 
 		}

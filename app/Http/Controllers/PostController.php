@@ -41,4 +41,15 @@ class PostController extends Controller
 
     }
 
+    public function del_post($id){
+    	$post = Post::find($id);
+    	$imgLocation = public_path()."/uploadImage/";
+    	$img = $imgLocation.$post->photo;
+    	if(file_exists($img)){
+    		@unlink($img);
+    	}
+    	$post->delete();
+
+    }
+
 }
