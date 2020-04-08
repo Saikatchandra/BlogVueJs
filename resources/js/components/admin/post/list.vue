@@ -40,7 +40,7 @@
                   <td> <img :src="ourImage(post.photo)" alt="" width="40" height="50"> </td>
                   <td>
                     <!-- //path initiated to route.js first -->
-                  	<a href="">Edit</a> 
+                  	<router-link :to="`edit-post/${post.id}`">Edit</router-link> 
                   	<a href="" @click.prevent='deletePost(post.id)'>Delete</a>
                   </td>
                   

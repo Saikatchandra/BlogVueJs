@@ -52,4 +52,11 @@ class PostController extends Controller
 
     }
 
+    public function edit_post($id){
+      $post = Post::find($id);
+      return response()->json([
+           'post' => $post
+      ],200);
+    }
+
 }
