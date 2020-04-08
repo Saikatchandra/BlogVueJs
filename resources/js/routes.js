@@ -3,6 +3,11 @@ import CategoryList from './components/admin/category/list.vue'
 import AddCategory from './components/admin/category/new.vue'
 import EditCategory from './components/admin/category/Edit.vue'
 
+//post file import
+import PostList from './components/admin/post/list.vue'
+import AddPost from './components/admin/post/new.vue'
+import EditPost from './components/admin/post/edit.vue'
+
 export const routes = [
   { 
   	path: '/home', 
@@ -19,6 +24,18 @@ export const routes = [
   { 
     path: '/edit-category/:categoryId', 
     component: EditCategory 
+  },
+ { 
+    path: '/post-list', 
+    component: PostList 
+  },
+ { 
+    path: '/add-post', 
+    component: AddPost 
+  },
+ { 
+    path: '/edit-post/:postId', 
+    component: EditPost
   },
  
 ]

@@ -26,3 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
  Route::get('/category/{id}','CategoryController@del_category');
  Route::get('/editcategory/{id}','CategoryController@edit_category');
  Route::post('/update-category/{id}','CategoryController@update_category');
+
+
+ Route::get('/post','PostController@all_post');
