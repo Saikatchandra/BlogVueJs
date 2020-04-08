@@ -4764,7 +4764,11 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getallPost;
     }
   },
-  methods: {}
+  methods: {
+    ourImage: function ourImage(img) {
+      return "uploadImage/" + img;
+    }
+  }
 });
 
 /***/ }),
@@ -4865,13 +4869,36 @@ __webpack_require__.r(__webpack_exports__);
 
       // javascript filereader property and methods are decleared
       var file = event.target.files[0];
-      var reader = new FileReader();
 
-      reader.onload = function (event) {
-        _this.form.photo = event.target.result; // console.log(e.target.result)
-      };
+      if (file.size > 1048576) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href>Why do I have this issue?</a>'
+        });
+      } else {
+        var reader = new FileReader();
 
-      reader.readAsDataURL(file);
+        reader.onload = function (event) {
+          _this.form.photo = event.target.result; // console.log(event.target.result)
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    addPost: function addPost() {
+      var _this2 = this;
+
+      // console.log(this.form.description)
+      this.form.post('/add-post').then(function () {
+        _this2.$router.push('post-list');
+
+        Toast.fire({
+          icon: 'success',
+          title: 'Post Added successfully'
+        });
+      })["catch"](function () {});
     }
   }
 });
@@ -83182,7 +83209,7 @@ var render = function() {
                         _c("td", [
                           _c("img", {
                             attrs: {
-                              src: post.photo,
+                              src: _vm.ourImage(post.photo),
                               alt: "",
                               width: "40",
                               height: "50"
@@ -83268,7 +83295,15 @@ var render = function() {
             _vm._v(" "),
             _c(
               "form",
-              { attrs: { role: "form", enctype: "multipart/form-data" } },
+              {
+                attrs: { role: "form", enctype: "multipart/form-data" },
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    return _vm.addPost()
+                  }
+                }
+              },
               [
                 _c("div", { staticClass: "card-body" }, [
                   _c(

@@ -29,3 +29,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
  Route::get('/post','PostController@all_post');
+ Route::post('/add-post','PostController@save_post');

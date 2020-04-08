@@ -5,14 +5,40 @@ namespace App\Http\Controllers;
 use App\Post;
 // use App\Category;
 use Illuminate\Http\Request;
+use Auth;
+use Image;
 
 class PostController extends Controller
 {
     public function all_post(){
-    	$posts = Post::with('category','user')->get();
+    	$posts = Post::with('category','user')->orderBy('id','desc')->get();
          return response()->json([
             'posts'=>$posts
          ],200);
+    }
+
+    public function save_post(Request $request){
+        
+         //Get image extention
+          $strpos = strpos($request->photo,';');  //select position till semicolon
+          $substr = substr($request->photo,0,$strpos); // select string till before semicolon
+          $ex = explode('/', $substr)[1]; // explode is use to convert a string to array
+           // return $ex;
+          
+          $name = time().".".$ex;        //name format  of upload image
+          $img = Image::make($request->photo)->resize(200, 200);  // use Image Intervention
+          $uploadpath = public_path()."/uploadImage/";
+          $img->save($uploadpath.$name);
+         
+          $post = new Post();
+          $post->title =$request->title;
+          $post->description =$request->description;
+          $post->photo =$request->photo;
+          $post->cat_id =$request->cat_id;
+          $post->user_id = Auth::user()->id;
+          $post->photo = $name;
+          $post->save();
+
     }
 
 }

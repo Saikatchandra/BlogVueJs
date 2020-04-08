@@ -11,7 +11,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" enctype="multipart/form-data">
+              <form role="form" enctype="multipart/form-data" @submit.prevent="addPost()">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="postId">Post Name</label>
@@ -85,14 +85,39 @@
 			showImage(event){
 				          // javascript filereader property and methods are decleared
 				let file = event.target.files[0];
-				 
-				  let reader = new FileReader();
-				  reader.onload = event=> {
-				   this.form.photo = event.target.result
-				    // console.log(e.target.result)
-				  };
+				  
+				  if(file.size>1048576){
+				  	Swal.fire({
+					  icon: 'error',
+					  title: 'Oops...',
+					  text: 'Something went wrong!',
+					  footer: '<a href>Why do I have this issue?</a>'
+					})
 
-				  reader.readAsDataURL(file);
+				  } else {
+				  	  let reader = new FileReader();
+					  reader.onload = event=> {
+					   this.form.photo = event.target.result
+					    // console.log(event.target.result)
+					  };
+
+					  reader.readAsDataURL(file);
+				  }
+				 
+			},
+			addPost(){
+				// console.log(this.form.description)
+				this.form.post('/add-post')
+				  .then(()=>{
+				  		this.$router.push('post-list')
+							Toast.fire({
+          						  icon: 'success',
+          						  title: 'Post Added successfully'
+          						})
+				  })
+				  .catch(()=>{
+
+				  })
 			}
 
 		}

@@ -37,7 +37,7 @@
                   <td v-if="post.category">{{post.category.cat_name}}</td>
                   <td>{{post.title | shortLength(10,'----')}}</td>
                   <td>{{post.description | shortLength(23,'----------')}}</td>
-                  <td> <img :src="post.photo" alt="" width="40" height="50"> </td>
+                  <td> <img :src="ourImage(post.photo)" alt="" width="40" height="50"> </td>
                   <td>
                     <!-- //path initiated to route.js first -->
                   	<a href="">Edit</a> 
@@ -68,6 +68,9 @@
              }
 		},
 		methods:{
+        ourImage(img){
+          return "uploadImage/"+img;
+        }
 
 		}
 	}
