@@ -11,6 +11,7 @@ import EditPost from './components/admin/post/edit.vue'
 //frontend
 import Publichome from './components/public/home.vue'
 import BlogPost from './components/public/blog/blogpost.vue'
+import SingleBlog from './components/public/blog/singleblog.vue'
 
 export const routes = [
   { 
@@ -52,5 +53,9 @@ export const routes = [
      { 
     path: '/blog', 
     component: BlogPost
+    },
+     { 
+    path: '/blog/:blogId', 
+    component: SingleBlog
     },
 ]

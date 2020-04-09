@@ -32,9 +32,10 @@
                             </div>
 
                             <div class="blog_details">
-                                <a class="d-inline-block" href="single-blog.html">
+                            	<!-- create this link in route.js -->
+                                <router-link class="d-inline-block" :to="`blog/${post.id}`">
                                     <h2>{{post.title}}</h2>
-                                </a>
+                                </router-link>
                                 <p>{{post.description | shortLength(100,".........")}}</p>
                                 <ul class="blog-info-link">
                                     <li v-if="post.user"><a href="#"><i class="far fa-user"></i> {{post.user.name}}</a></li>

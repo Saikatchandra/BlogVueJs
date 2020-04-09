@@ -44,4 +44,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 });
 
 Route::get('/blog-post', 'BlogController@get_all_post');
+Route::get('/single-post/{id}', 'BlogController@get_single_post');
+
  
