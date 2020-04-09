@@ -27,4 +27,32 @@ class BlogController extends Controller
             'categories' => $categories
          ]);
     }
+
+    public function get_post_by_catId($id){
+       $posts = Post::with('user','category')->where('cat_id',$id)->orderBy('id','desc')->get();
+       return response()->json([
+            'posts'=> $posts
+    	],200);
+        
+    }
+
+    public function search_post(){
+        $search = \Request::get('s');
+          $posts = Post::with('user','category')
+          ->where('title','LIKE',"%$search%")
+          ->orWhere('description','LIKE',"%$search%")
+          ->get();
+
+          return response()->json([
+            'posts'=> $posts
+        ],200);
+
+    }
+
+    public function latest_post(){
+        $posts = Post::with('user','category')->orderBy('id','desc')->get();
+        return response()->json([
+            'blogpost'=> $posts
+        ],200); 
+    }
 }

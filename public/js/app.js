@@ -5157,7 +5157,19 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getblogpost;
     }
   },
-  methods: {}
+  methods: {
+    getpostbyCat: function getpostbyCat() {
+      // if($this.route.params.catId != null){
+      this.$store.dispatch('getcatbyId', $this.route.params.catId); // } else {
+      // this.$store.dispatch('getblogPost');
+    } // }
+
+  },
+  watch: {
+    $route: function $route(to, from) {
+      this.getpostbyCat();
+    }
+  }
 });
 
 /***/ }),
@@ -5171,6 +5183,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -5224,11 +5238,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "sidebar",
+  data: function data() {
+    return {
+      keyword: ''
+    };
+  },
   mounted: function mounted() {
     this.$store.dispatch('allCategories');
-    this.$store.dispatch('getblogPost');
+    this.$store.dispatch('latestpost');
   },
   computed: {
     categories: function categories() {
@@ -5238,7 +5258,11 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getblogpost;
     }
   },
-  methods: {}
+  methods: {
+    realSearch: lodash__WEBPACK_IMPORTED_MODULE_0___default.a.debounce(function () {
+      this.$store.dispatch('searchPost', this.keyword);
+    }, 1000)
+  }
 });
 
 /***/ }),
@@ -5459,8 +5483,19 @@ __webpack_require__.r(__webpack_exports__);
       return this.$store.getters.getsinglepost;
     }
   },
+  methods: {
+    getsingle: function getsingle() {
+      this.$store.dispatch('getpostbyId', this.$route.params.blogId);
+    }
+  },
   mounted: function mounted() {
-    this.$store.dispatch('getpostbyId', this.$route.params.blogId);
+    this.getsingle();
+  },
+  watch: {
+    // watch use for get one single component to another component 
+    $route: function $route(to, from) {
+      this.getsingle();
+    }
   }
 });
 
@@ -84362,7 +84397,7 @@ var render = function() {
                             "router-link",
                             {
                               staticClass: "d-inline-block",
-                              attrs: { to: "blog/" + post.id }
+                              attrs: { to: "/blog/" + post.id }
                             },
                             [_c("h2", [_vm._v(_vm._s(post.title))])]
                           ),
@@ -84510,9 +84545,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", { attrs: { id: "sidebar" } }, [
-    _c("div", { staticClass: "col-lg-4" }, [
+    _c("div", { staticClass: "col-lg-9" }, [
       _c("div", { staticClass: "blog_right_sidebar" }, [
-        _vm._m(0),
+        _c("aside", { staticClass: "single_sidebar_widget search_widget" }, [
+          _c("form", { attrs: { action: "#" } }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("div", { staticClass: "input-group mb-3" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.keyword,
+                      expression: "keyword"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "text",
+                    placeholder: "Search Keyword",
+                    onfocus: "this.placeholder = ''",
+                    onblur: "this.placeholder = 'Search Keyword'"
+                  },
+                  domProps: { value: _vm.keyword },
+                  on: {
+                    keyup: _vm.realSearch,
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.keyword = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm._m(0)
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "button rounded-0 primary-bg ",
+                attrs: { type: "submit" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.realSearch($event)
+                  }
+                }
+              },
+              [_vm._v("Search")]
+            )
+          ])
+        ]),
         _vm._v(" "),
         _c(
           "aside",
@@ -84524,13 +84610,24 @@ var render = function() {
               "ul",
               { staticClass: "list cat-list" },
               _vm._l(_vm.categories, function(cat) {
-                return _c("li", [
-                  _c("a", { staticClass: "d-flex", attrs: { href: "#" } }, [
-                    _c("p", [_vm._v(_vm._s(cat.cat_name))]),
-                    _vm._v(" "),
-                    _c("p", [_vm._v("(37)")])
-                  ])
-                ])
+                return _c(
+                  "li",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "d-flex",
+                        attrs: { to: "/categories/" + cat.id }
+                      },
+                      [
+                        _c("p", [_vm._v(_vm._s(cat.cat_name))]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v("(37)")])
+                      ]
+                    )
+                  ],
+                  1
+                )
               }),
               0
             )
@@ -84550,15 +84647,26 @@ var render = function() {
                       attrs: { src: "uploadImage/" + post.photo, alt: "post" }
                     }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "media-body" }, [
-                      _c("a", { attrs: { href: "single-blog.html" } }, [
-                        _c("h3", [
-                          _vm._v(
-                            _vm._s(_vm._f("shortLength")(post.title, 15, "..."))
-                          )
-                        ])
-                      ])
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "media-body" },
+                      [
+                        _c(
+                          "router-link",
+                          { attrs: { to: "/blog/" + post.id } },
+                          [
+                            _c("h3", [
+                              _vm._v(
+                                _vm._s(
+                                  _vm._f("shortLength")(post.title, 15, "...")
+                                )
+                              )
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
                   ])
                 : _vm._e()
             })
@@ -84574,36 +84682,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("aside", { staticClass: "single_sidebar_widget search_widget" }, [
-      _c("form", { attrs: { action: "#" } }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("div", { staticClass: "input-group mb-3" }, [
-            _c("input", {
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                placeholder: "Search Keyword",
-                onfocus: "this.placeholder = ''",
-                onblur: "this.placeholder = 'Search Keyword'"
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "input-group-append" }, [
-              _c("button", { staticClass: "btn", attrs: { type: "button" } }, [
-                _c("i", { staticClass: "ti-search" })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "button rounded-0 primary-bg text-white w-100 btn_1",
-            attrs: { type: "submit" }
-          },
-          [_vm._v("Search")]
-        )
+    return _c("div", { staticClass: "input-group-append" }, [
+      _c("button", { staticClass: "btn", attrs: { type: "button" } }, [
+        _c("i", { staticClass: "ti-search" })
       ])
     ])
   }
@@ -101289,7 +101370,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
 var app = new Vue({
   el: '#app',
   router: router,
-  mode: 'hash',
+  // mode: 'hash',
   store: store
 });
 
@@ -102265,6 +102346,9 @@ var routes = [{
 }, {
   path: '/blog/:blogId',
   component: _components_public_blog_singleblog_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+}, {
+  path: '/categories/:catId',
+  component: _components_public_blog_blogpost_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
 }];
 
 /***/ }),
@@ -102284,7 +102368,8 @@ __webpack_require__.r(__webpack_exports__);
     post: [],
     blog: [],
     singlepost: [],
-    allCategories: []
+    allCategories: [],
+    latestpost: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -102301,6 +102386,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getallcats: function getallcats(state) {
       return state.allCategories;
+    },
+    latestpost: function latestpost(state) {
+      return state.latestpost;
     }
   },
   actions: {
@@ -102332,6 +102420,22 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/allcategory').then(function (res) {
         context.commit('allCategory', res.data.categories);
       });
+    },
+    getcatbyId: function getcatbyId(context, payload) {
+      axios.get('/category-post/' + payload).then(function (res) {
+        context.commit('getcat', res.data.posts);
+      });
+    },
+    searchPost: function searchPost(context, payload) {
+      axios.get('/search?s=' + payload).then(function (res) {
+        // console.log()
+        context.commit('PostSearch', res.data.posts);
+      });
+    },
+    latestpost: function latestpost(context) {
+      axios.get('/latest-post').then(function (res) {
+        context.commit('latestpost', res.data.blogpost);
+      });
     }
   },
   mutations: {
@@ -102349,6 +102453,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     allCategory: function allCategory(state, payload) {
       return state.allCategories = payload;
+    },
+    getcat: function getcat(state, payload) {
+      return state.blog = payload;
+    },
+    PostSearch: function PostSearch(state, payload) {
+      return state.blog = payload;
+    },
+    latestpost: function latestpost(state, payload) {
+      return state.latestpost = payload;
     }
   }
 });

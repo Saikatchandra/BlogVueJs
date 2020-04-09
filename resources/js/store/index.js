@@ -5,7 +5,8 @@ export default {
         post: [],
         blog: [],
         singlepost: [],
-        allCategories: []
+        allCategories: [],
+        latestpost: []
 	},
 	getters:{
 		getCategory(state){
@@ -22,7 +23,11 @@ export default {
     },
     getallcats(state){
       return state.allCategories
+    },
+    latestpost(state){
+      return state.latestpost
     }
+    
 
 	},
 	actions:{
@@ -58,6 +63,25 @@ export default {
                .then((res)=>{
                  context.commit('allCategory',res.data.categories)
                })
+          },
+          getcatbyId(context,payload){
+             axios.get('/category-post/'+payload)
+               .then((res)=>{
+                  context.commit('getcat',res.data.posts)
+               })
+          },
+          searchPost(context,payload){
+             axios.get('/search?s='+payload)
+              .then((res)=>{
+                // console.log()
+                 context.commit('PostSearch',res.data.posts)
+              })
+          },
+          latestpost(context){
+             axios.get('/latest-post')
+              .then((res)=>{
+                 context.commit('latestpost',res.data.blogpost)
+              })
           }
 	},
 	mutations:{
@@ -75,6 +99,15 @@ export default {
     },
     allCategory(state,payload){
       return state.allCategories = payload
+    },
+    getcat(state,payload){
+      return state.blog = payload
+    },
+    PostSearch(state,payload){
+      return state.blog = payload
+    },
+    latestpost(state,payload){
+      return state.latestpost = payload
     }
 
 	}

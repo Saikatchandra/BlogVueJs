@@ -205,8 +205,18 @@
              	return this.$store.getters.getsinglepost
              }
         },
+        methods:{
+           getsingle(){
+               this.$store.dispatch('getpostbyId',this.$route.params.blogId);
+           }
+        },
         mounted(){
-        	this.$store.dispatch('getpostbyId',this.$route.params.blogId)
+        	  this.getsingle();
+        }, 
+        watch:{        // watch use for get one single component to another component 
+          $route(to,from){
+            this.getsingle();
+          }
         }
 	}
 </script>

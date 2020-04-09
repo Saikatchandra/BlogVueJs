@@ -47,6 +47,9 @@ Route::get('/blog-post', 'BlogController@get_all_post');
 Route::get('/single-post/{id}', 'BlogController@get_single_post');
 
 Route::get('/allcategory', 'BlogController@get_all_category');
+Route::get('/category-post/{id}', 'BlogController@get_post_by_catId');
+Route::get('/search', 'BlogController@search_post');
+Route::get('/latest-post', 'BlogController@latest_post');
 
 
  

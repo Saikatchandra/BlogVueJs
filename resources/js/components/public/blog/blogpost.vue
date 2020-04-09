@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
-                    <div class="blog_left_sidebar">
+                    <div class="blog_left_sidebar"> 
                         <article class="blog_item" v-for="post in blogpost">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" :src="`uploadImage/${post.photo}`" alt="" height="200">
@@ -33,7 +33,7 @@
 
                             <div class="blog_details">
                             	<!-- create this link in route.js -->
-                                <router-link class="d-inline-block" :to="`blog/${post.id}`">
+                                <router-link class="d-inline-block" :to="`/blog/${post.id}`">
                                     <h2>{{post.title}}</h2>
                                 </router-link>
                                 <p>{{post.description | shortLength(100,".........")}}</p>
@@ -98,7 +98,20 @@
          },
          
          methods:{
+              getpostbyCat(){
 
+              	// if($this.route.params.catId != null){
+ 					 this.$store.dispatch('getcatbyId',$this.route.params.catId);
+				 // } else {
+				 	 // this.$store.dispatch('getblogPost');
+				 }
+
+              // }
+         },
+         watch:{
+         	$route(to,from){
+              this.getpostbyCat();
+         	}
          }
 
 
