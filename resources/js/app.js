@@ -30,6 +30,7 @@ Vue.use(VueRouter)
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-main', require('./components/admin/master.vue').default);
+Vue.component('home-main', require('./components/public/master.vue'));
 
 
 // V -Form

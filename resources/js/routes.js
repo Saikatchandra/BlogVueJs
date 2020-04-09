@@ -8,6 +8,10 @@ import PostList from './components/admin/post/list.vue'
 import AddPost from './components/admin/post/new.vue'
 import EditPost from './components/admin/post/edit.vue'
 
+//frontend
+import Publichome from './components/public/home.vue'
+import BlogPost from './components/public/blog/blogpost.vue'
+
 export const routes = [
   { 
   	path: '/home', 
@@ -37,5 +41,16 @@ export const routes = [
     path: '/edit-post/:postId', 
     component: EditPost
   },
+
+  //Frontend
  
+
+    { 
+    path: '/', 
+    component: Publichome
+    },
+     { 
+    path: '/blog', 
+    component: BlogPost
+    },
 ]
