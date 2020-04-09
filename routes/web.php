@@ -43,4 +43,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 });
 
+Route::get('/blog-post', 'BlogController@get_all_post');
  

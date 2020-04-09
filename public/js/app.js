@@ -5050,6 +5050,117 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/blog/blogpost.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/public/blog/blogpost.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sidebar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sidebar.vue */ "./resources/js/components/public/blog/sidebar.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "blogpost",
+  components: {
+    BlogSidebar: _sidebar_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {
+    this.$store.dispatch('getblogPost');
+  },
+  computed: {
+    blogpost: function blogpost() {
+      return this.$store.getters.getblogpost;
+    }
+  },
+  methods: {}
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -83896,6 +84007,198 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  return _c("span", { attrs: { id: "blogpost" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("section", { staticClass: "blog_area section_padding" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row" },
+          [
+            _c("div", { staticClass: "col-lg-8 mb-5 mb-lg-0" }, [
+              _c(
+                "div",
+                { staticClass: "blog_left_sidebar" },
+                [
+                  _vm._l(_vm.blogpost, function(post) {
+                    return _c("article", { staticClass: "blog_item" }, [
+                      _c("div", { staticClass: "blog_item_img" }, [
+                        _c("img", {
+                          staticClass: "card-img rounded-0",
+                          attrs: {
+                            src: "uploadImage/" + post.photo,
+                            alt: "",
+                            height: "200"
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "blog_item_date",
+                            attrs: { href: "#" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                                   \n                             \t\t" +
+                                _vm._s(_vm._f("timeFormat")(post.created_at)) +
+                                "\n                                "
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "blog_details" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "d-inline-block",
+                            attrs: { href: "single-blog.html" }
+                          },
+                          [_c("h2", [_vm._v(_vm._s(post.title))])]
+                        ),
+                        _vm._v(" "),
+                        _c("p", [
+                          _vm._v(
+                            _vm._s(
+                              _vm._f("shortLength")(
+                                post.description,
+                                100,
+                                "........."
+                              )
+                            )
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("ul", { staticClass: "blog-info-link" }, [
+                          post.user
+                            ? _c("li", [
+                                _c("a", { attrs: { href: "#" } }, [
+                                  _c("i", { staticClass: "far fa-user" }),
+                                  _vm._v(" " + _vm._s(post.user.name))
+                                ])
+                              ])
+                            : _vm._e(),
+                          _vm._v(" "),
+                          _vm._m(1, true)
+                        ])
+                      ])
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ],
+                2
+              )
+            ]),
+            _vm._v(" "),
+            _c("BlogSidebar")
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "breadcrumb breadcrumb_bg" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row justify-content-center" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "breadcrumb_iner" }, [
+              _c("div", { staticClass: "breadcrumb_iner_item" }, [
+                _c("p", [_vm._v("Home / blog")])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("a", { attrs: { href: "#" } }, [
+        _c("i", { staticClass: "far fa-comments" }),
+        _vm._v(" 03 Comments")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "nav",
+      { staticClass: "blog-pagination justify-content-center d-flex" },
+      [
+        _c("ul", { staticClass: "pagination" }, [
+          _c("li", { staticClass: "page-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "page-link",
+                attrs: { href: "#", "aria-label": "Previous" }
+              },
+              [_c("i", { staticClass: "ti-angle-left" })]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("1")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item active" }, [
+            _c("a", { staticClass: "page-link", attrs: { href: "#" } }, [
+              _vm._v("2")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "page-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "page-link",
+                attrs: { href: "#", "aria-label": "Next" }
+              },
+              [_c("i", { staticClass: "ti-angle-right" })]
+            )
+          ])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/blog/sidebar.vue?vue&type=template&id=7fac894c&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/public/blog/sidebar.vue?vue&type=template&id=7fac894c& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
   return _vm._m(0)
 }
 var staticRenderFns = [
@@ -83903,703 +84206,168 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", [
-      _c("section", { staticClass: "breadcrumb breadcrumb_bg" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row justify-content-center" }, [
-            _c("div", { staticClass: "col-lg-12" }, [
-              _c("div", { staticClass: "breadcrumb_iner" }, [
-                _c("div", { staticClass: "breadcrumb_iner_item" }, [
-                  _c("p", [_vm._v("Home / blog")])
+    return _c("span", { attrs: { id: "sidebar" } }, [
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("div", { staticClass: "blog_right_sidebar" }, [
+          _c("aside", { staticClass: "single_sidebar_widget search_widget" }, [
+            _c("form", { attrs: { action: "#" } }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("div", { staticClass: "input-group mb-3" }, [
+                  _c("input", {
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Search Keyword",
+                      onfocus: "this.placeholder = ''",
+                      onblur: "this.placeholder = 'Search Keyword'"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group-append" }, [
+                    _c(
+                      "button",
+                      { staticClass: "btn", attrs: { type: "button" } },
+                      [_c("i", { staticClass: "ti-search" })]
+                    )
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass:
+                    "button rounded-0 primary-bg text-white w-100 btn_1",
+                  attrs: { type: "submit" }
+                },
+                [_vm._v("Search")]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c(
+            "aside",
+            { staticClass: "single_sidebar_widget post_category_widget" },
+            [
+              _c("h4", { staticClass: "widget_title" }, [_vm._v("Category")]),
+              _vm._v(" "),
+              _c("ul", { staticClass: "list cat-list" }, [
+                _c("li", [
+                  _c("a", { staticClass: "d-flex", attrs: { href: "#" } }, [
+                    _c("p", [_vm._v("Resaurant food")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("(37)")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "d-flex", attrs: { href: "#" } }, [
+                    _c("p", [_vm._v("Travel news")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("(10)")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "d-flex", attrs: { href: "#" } }, [
+                    _c("p", [_vm._v("Modern technology")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("(03)")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "d-flex", attrs: { href: "#" } }, [
+                    _c("p", [_vm._v("Product")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("(11)")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "d-flex", attrs: { href: "#" } }, [
+                    _c("p", [_vm._v("Inspiration")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("21")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { staticClass: "d-flex", attrs: { href: "#" } }, [
+                    _c("p", [_vm._v("Health Care (21)")]),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("09")])
+                  ])
                 ])
               ])
-            ])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("section", { staticClass: "blog_area section_padding" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-lg-8 mb-5 mb-lg-0" }, [
-              _c("div", { staticClass: "blog_left_sidebar" }, [
-                _c("article", { staticClass: "blog_item" }, [
-                  _c("div", { staticClass: "blog_item_img" }, [
-                    _c("img", {
-                      staticClass: "card-img rounded-0",
-                      attrs: { src: "img/blog/single_blog_1.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "blog_item_date", attrs: { href: "#" } },
-                      [
-                        _c("h3", [_vm._v("15")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Jan")])
-                      ]
-                    )
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "aside",
+            { staticClass: "single_sidebar_widget popular_post_widget" },
+            [
+              _c("h3", { staticClass: "widget_title" }, [
+                _vm._v("Recent Post")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "media post_item" }, [
+                _c("img", {
+                  attrs: { src: "img/post/post_1.png", alt: "post" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "media-body" }, [
+                  _c("a", { attrs: { href: "single-blog.html" } }, [
+                    _c("h3", [_vm._v("From life was you fish...")])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "blog_details" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-inline-block",
-                        attrs: { href: "single-blog.html" }
-                      },
-                      [
-                        _c("h2", [
-                          _vm._v("Google inks pact for new 35-storey office")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "That dominion stars lights dominion divide years for fourth have don't stars is that\n                                    he earth it first without heaven in place seed it second morning saying."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "blog-info-link" }, [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-user" }),
-                          _vm._v(" Travel, Lifestyle")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-comments" }),
-                          _vm._v(" 03 Comments")
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
+                  _c("p", [_vm._v("January 12, 2019")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "media post_item" }, [
+                _c("img", {
+                  attrs: { src: "img/post/post_2.png", alt: "post" }
+                }),
                 _vm._v(" "),
-                _c("article", { staticClass: "blog_item" }, [
-                  _c("div", { staticClass: "blog_item_img" }, [
-                    _c("img", {
-                      staticClass: "card-img rounded-0",
-                      attrs: { src: "img/blog/single_blog_2.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "blog_item_date", attrs: { href: "#" } },
-                      [
-                        _c("h3", [_vm._v("15")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Jan")])
-                      ]
-                    )
+                _c("div", { staticClass: "media-body" }, [
+                  _c("a", { attrs: { href: "single-blog.html" } }, [
+                    _c("h3", [_vm._v("The Amazing Hubble")])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "blog_details" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-inline-block",
-                        attrs: { href: "single-blog.html" }
-                      },
-                      [
-                        _c("h2", [
-                          _vm._v("Google inks pact for new 35-storey office")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "That dominion stars lights dominion divide years for fourth have don't stars is that\n                                    he earth it first without heaven in place seed it second morning saying."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "blog-info-link" }, [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-user" }),
-                          _vm._v(" Travel, Lifestyle")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-comments" }),
-                          _vm._v(" 03 Comments")
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
+                  _c("p", [_vm._v("02 Hours ago")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "media post_item" }, [
+                _c("img", {
+                  attrs: { src: "img/post/post_3.png", alt: "post" }
+                }),
                 _vm._v(" "),
-                _c("article", { staticClass: "blog_item" }, [
-                  _c("div", { staticClass: "blog_item_img" }, [
-                    _c("img", {
-                      staticClass: "card-img rounded-0",
-                      attrs: { src: "img/blog/single_blog_3.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "blog_item_date", attrs: { href: "#" } },
-                      [
-                        _c("h3", [_vm._v("15")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Jan")])
-                      ]
-                    )
+                _c("div", { staticClass: "media-body" }, [
+                  _c("a", { attrs: { href: "single-blog.html" } }, [
+                    _c("h3", [_vm._v("Astronomy Or Astrology")])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "blog_details" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-inline-block",
-                        attrs: { href: "single-blog.html" }
-                      },
-                      [
-                        _c("h2", [
-                          _vm._v("Google inks pact for new 35-storey office")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "That dominion stars lights dominion divide years for fourth have don't stars is that\n                                    he earth it first without heaven in place seed it second morning saying."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "blog-info-link" }, [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-user" }),
-                          _vm._v(" Travel, Lifestyle")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-comments" }),
-                          _vm._v(" 03 Comments")
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
+                  _c("p", [_vm._v("03 Hours ago")])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "media post_item" }, [
+                _c("img", {
+                  attrs: { src: "img/post/post_4.png", alt: "post" }
+                }),
                 _vm._v(" "),
-                _c("article", { staticClass: "blog_item" }, [
-                  _c("div", { staticClass: "blog_item_img" }, [
-                    _c("img", {
-                      staticClass: "card-img rounded-0",
-                      attrs: { src: "img/blog/single_blog_4.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "blog_item_date", attrs: { href: "#" } },
-                      [
-                        _c("h3", [_vm._v("15")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Jan")])
-                      ]
-                    )
+                _c("div", { staticClass: "media-body" }, [
+                  _c("a", { attrs: { href: "single-blog.html" } }, [
+                    _c("h3", [_vm._v("Asteroids telescope")])
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "blog_details" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-inline-block",
-                        attrs: { href: "single-blog.html" }
-                      },
-                      [
-                        _c("h2", [
-                          _vm._v("Google inks pact for new 35-storey office")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "That dominion stars lights dominion divide years for fourth have don't stars is that\n                                    he earth it first without heaven in place seed it second morning saying."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "blog-info-link" }, [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-user" }),
-                          _vm._v(" Travel, Lifestyle")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-comments" }),
-                          _vm._v(" 03 Comments")
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("article", { staticClass: "blog_item" }, [
-                  _c("div", { staticClass: "blog_item_img" }, [
-                    _c("img", {
-                      staticClass: "card-img rounded-0",
-                      attrs: { src: "img/blog/single_blog_5.png", alt: "" }
-                    }),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      { staticClass: "blog_item_date", attrs: { href: "#" } },
-                      [
-                        _c("h3", [_vm._v("15")]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("Jan")])
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "blog_details" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "d-inline-block",
-                        attrs: { href: "single-blog.html" }
-                      },
-                      [
-                        _c("h2", [
-                          _vm._v("Google inks pact for new 35-storey office")
-                        ])
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("p", [
-                      _vm._v(
-                        "That dominion stars lights dominion divide years for fourth have don't stars is that\n                                    he earth it first without heaven in place seed it second morning saying."
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "blog-info-link" }, [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-user" }),
-                          _vm._v(" Travel, Lifestyle")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("i", { staticClass: "far fa-comments" }),
-                          _vm._v(" 03 Comments")
-                        ])
-                      ])
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c(
-                  "nav",
-                  {
-                    staticClass: "blog-pagination justify-content-center d-flex"
-                  },
-                  [
-                    _c("ul", { staticClass: "pagination" }, [
-                      _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#", "aria-label": "Previous" }
-                          },
-                          [_c("i", { staticClass: "ti-angle-left" })]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          { staticClass: "page-link", attrs: { href: "#" } },
-                          [_vm._v("1")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "page-item active" }, [
-                        _c(
-                          "a",
-                          { staticClass: "page-link", attrs: { href: "#" } },
-                          [_vm._v("2")]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "page-item" }, [
-                        _c(
-                          "a",
-                          {
-                            staticClass: "page-link",
-                            attrs: { href: "#", "aria-label": "Next" }
-                          },
-                          [_c("i", { staticClass: "ti-angle-right" })]
-                        )
-                      ])
-                    ])
-                  ]
-                )
+                  _c("p", [_vm._v("01 Hours ago")])
+                ])
               ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-4" }, [
-              _c("div", { staticClass: "blog_right_sidebar" }, [
-                _c(
-                  "aside",
-                  { staticClass: "single_sidebar_widget search_widget" },
-                  [
-                    _c("form", { attrs: { action: "#" } }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("div", { staticClass: "input-group mb-3" }, [
-                          _c("input", {
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              placeholder: "Search Keyword",
-                              onfocus: "this.placeholder = ''",
-                              onblur: "this.placeholder = 'Search Keyword'"
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("div", { staticClass: "input-group-append" }, [
-                            _c(
-                              "button",
-                              { staticClass: "btn", attrs: { type: "button" } },
-                              [_c("i", { staticClass: "ti-search" })]
-                            )
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "button rounded-0 primary-bg text-white w-100 btn_1",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Search")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "aside",
-                  { staticClass: "single_sidebar_widget post_category_widget" },
-                  [
-                    _c("h4", { staticClass: "widget_title" }, [
-                      _vm._v("Category")
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "list cat-list" }, [
-                      _c("li", [
-                        _c(
-                          "a",
-                          { staticClass: "d-flex", attrs: { href: "#" } },
-                          [
-                            _c("p", [_vm._v("Resaurant food")]),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("(37)")])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          { staticClass: "d-flex", attrs: { href: "#" } },
-                          [
-                            _c("p", [_vm._v("Travel news")]),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("(10)")])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          { staticClass: "d-flex", attrs: { href: "#" } },
-                          [
-                            _c("p", [_vm._v("Modern technology")]),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("(03)")])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          { staticClass: "d-flex", attrs: { href: "#" } },
-                          [
-                            _c("p", [_vm._v("Product")]),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("(11)")])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          { staticClass: "d-flex", attrs: { href: "#" } },
-                          [
-                            _c("p", [_vm._v("Inspiration")]),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("21")])
-                          ]
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          { staticClass: "d-flex", attrs: { href: "#" } },
-                          [
-                            _c("p", [_vm._v("Health Care (21)")]),
-                            _vm._v(" "),
-                            _c("p", [_vm._v("09")])
-                          ]
-                        )
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "aside",
-                  { staticClass: "single_sidebar_widget popular_post_widget" },
-                  [
-                    _c("h3", { staticClass: "widget_title" }, [
-                      _vm._v("Recent Post")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "media post_item" }, [
-                      _c("img", {
-                        attrs: { src: "img/post/post_1.png", alt: "post" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "media-body" }, [
-                        _c("a", { attrs: { href: "single-blog.html" } }, [
-                          _c("h3", [_vm._v("From life was you fish...")])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("January 12, 2019")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "media post_item" }, [
-                      _c("img", {
-                        attrs: { src: "img/post/post_2.png", alt: "post" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "media-body" }, [
-                        _c("a", { attrs: { href: "single-blog.html" } }, [
-                          _c("h3", [_vm._v("The Amazing Hubble")])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("02 Hours ago")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "media post_item" }, [
-                      _c("img", {
-                        attrs: { src: "img/post/post_3.png", alt: "post" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "media-body" }, [
-                        _c("a", { attrs: { href: "single-blog.html" } }, [
-                          _c("h3", [_vm._v("Astronomy Or Astrology")])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("03 Hours ago")])
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "media post_item" }, [
-                      _c("img", {
-                        attrs: { src: "img/post/post_4.png", alt: "post" }
-                      }),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "media-body" }, [
-                        _c("a", { attrs: { href: "single-blog.html" } }, [
-                          _c("h3", [_vm._v("Asteroids telescope")])
-                        ]),
-                        _vm._v(" "),
-                        _c("p", [_vm._v("01 Hours ago")])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "aside",
-                  { staticClass: "single_sidebar_widget tag_cloud_widget" },
-                  [
-                    _c("h4", { staticClass: "widget_title" }, [
-                      _vm._v("Tag Clouds")
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "list" }, [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("project")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("love")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("technology")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("travel")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("restaurant")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("life style")
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [_vm._v("design")])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _vm._v("illustration")
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "aside",
-                  { staticClass: "single_sidebar_widget instagram_feeds" },
-                  [
-                    _c("h4", { staticClass: "widget_title" }, [
-                      _vm._v("Instagram Feeds")
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "instagram_row flex-wrap" }, [
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            staticClass: "img-fluid",
-                            attrs: { src: "img/post/post_5.png", alt: "" }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            staticClass: "img-fluid",
-                            attrs: { src: "img/post/post_6.png", alt: "" }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            staticClass: "img-fluid",
-                            attrs: { src: "img/post/post_7.png", alt: "" }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            staticClass: "img-fluid",
-                            attrs: { src: "img/post/post_8.png", alt: "" }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            staticClass: "img-fluid",
-                            attrs: { src: "img/post/post_9.png", alt: "" }
-                          })
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("a", { attrs: { href: "#" } }, [
-                          _c("img", {
-                            staticClass: "img-fluid",
-                            attrs: { src: "img/post/post_10.png", alt: "" }
-                          })
-                        ])
-                      ])
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "aside",
-                  { staticClass: "single_sidebar_widget newsletter_widget" },
-                  [
-                    _c("h4", { staticClass: "widget_title" }, [
-                      _vm._v("Newsletter")
-                    ]),
-                    _vm._v(" "),
-                    _c("form", { attrs: { action: "#" } }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("input", {
-                          staticClass: "form-control",
-                          attrs: {
-                            type: "email",
-                            onfocus: "this.placeholder = ''",
-                            onblur: "this.placeholder = 'Enter email'",
-                            placeholder: "Enter email",
-                            required: ""
-                          }
-                        })
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass:
-                            "button rounded-0 primary-bg text-white w-100 btn_1",
-                          attrs: { type: "submit" }
-                        },
-                        [_vm._v("Subscribe")]
-                      )
-                    ])
-                  ]
-                )
-              ])
-            ])
-          ])
+            ]
+          )
         ])
       ])
     ])
@@ -101482,15 +101250,17 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blogpost_vue_vue_type_template_id_7e126b98___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blogpost.vue?vue&type=template&id=7e126b98& */ "./resources/js/components/public/blog/blogpost.vue?vue&type=template&id=7e126b98&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _blogpost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blogpost.vue?vue&type=script&lang=js& */ "./resources/js/components/public/blog/blogpost.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
-  script,
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _blogpost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _blogpost_vue_vue_type_template_id_7e126b98___WEBPACK_IMPORTED_MODULE_0__["render"],
   _blogpost_vue_vue_type_template_id_7e126b98___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
@@ -101507,6 +101277,20 @@ component.options.__file = "resources/js/components/public/blog/blogpost.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/public/blog/blogpost.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/public/blog/blogpost.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_blogpost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./blogpost.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/blog/blogpost.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_blogpost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/public/blog/blogpost.vue?vue&type=template&id=7e126b98&":
 /*!*****************************************************************************************!*\
   !*** ./resources/js/components/public/blog/blogpost.vue?vue&type=template&id=7e126b98& ***!
@@ -101520,6 +101304,59 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_blogpost_vue_vue_type_template_id_7e126b98___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_blogpost_vue_vue_type_template_id_7e126b98___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/public/blog/sidebar.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/public/blog/sidebar.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _sidebar_vue_vue_type_template_id_7fac894c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sidebar.vue?vue&type=template&id=7fac894c& */ "./resources/js/components/public/blog/sidebar.vue?vue&type=template&id=7fac894c&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _sidebar_vue_vue_type_template_id_7fac894c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _sidebar_vue_vue_type_template_id_7fac894c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/public/blog/sidebar.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/public/blog/sidebar.vue?vue&type=template&id=7fac894c&":
+/*!****************************************************************************************!*\
+  !*** ./resources/js/components/public/blog/sidebar.vue?vue&type=template&id=7fac894c& ***!
+  \****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_sidebar_vue_vue_type_template_id_7fac894c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./sidebar.vue?vue&type=template&id=7fac894c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/public/blog/sidebar.vue?vue&type=template&id=7fac894c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_sidebar_vue_vue_type_template_id_7fac894c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_sidebar_vue_vue_type_template_id_7fac894c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -101730,7 +101567,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     category: [],
-    post: []
+    post: [],
+    blog: []
   },
   getters: {
     getCategory: function getCategory(state) {
@@ -101738,6 +101576,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getallPost: function getallPost(state) {
       return state.post;
+    },
+    getblogpost: function getblogpost(state) {
+      return state.blog;
     }
   },
   actions: {
@@ -101753,6 +101594,11 @@ __webpack_require__.r(__webpack_exports__);
         // console.log(res.data.posts)
         context.commit('getPost', res.data.posts);
       });
+    },
+    getblogPost: function getblogPost(context) {
+      axios.get('/blog-post').then(function (res) {
+        context.commit('blogpost', res.data.blogpost);
+      });
     }
   },
   mutations: {
@@ -101761,6 +101607,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     getPost: function getPost(state, payload) {
       return state.post = payload;
+    },
+    blogpost: function blogpost(state, payload) {
+      return state.blog = payload;
     }
   }
 });
