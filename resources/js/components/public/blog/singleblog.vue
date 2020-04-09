@@ -213,7 +213,7 @@
         mounted(){
         	  this.getsingle();
         }, 
-        watch:{        // watch use for get one single component to another component 
+        watch:{      // watch use for get one single component to another component 
           $route(to,from){
             this.getsingle();
           }

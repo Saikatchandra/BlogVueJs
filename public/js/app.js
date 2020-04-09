@@ -5159,11 +5159,12 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     getpostbyCat: function getpostbyCat() {
-      // if($this.route.params.catId != null){
-      this.$store.dispatch('getcatbyId', $this.route.params.catId); // } else {
-      // this.$store.dispatch('getblogPost');
-    } // }
-
+      if (this.$route.params.id != null) {
+        this.$store.dispatch('getcatbyId', this.$route.params.id);
+      } else {
+        this.$store.dispatch('getblogPost');
+      }
+    }
   },
   watch: {
     $route: function $route(to, from) {
@@ -84361,6 +84362,11 @@ var render = function() {
                 "div",
                 { staticClass: "blog_left_sidebar" },
                 [
+                  _vm._v(
+                    "      " +
+                      _vm._s(this.$route.params.catId) +
+                      "\n                        "
+                  ),
                   _vm._l(_vm.blogpost, function(post) {
                     return _c("article", { staticClass: "blog_item" }, [
                       _c("div", { staticClass: "blog_item_img" }, [
@@ -102347,7 +102353,7 @@ var routes = [{
   path: '/blog/:blogId',
   component: _components_public_blog_singleblog_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
 }, {
-  path: '/categories/:catId',
+  path: '/categories/:id',
   component: _components_public_blog_blogpost_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
 }];
 

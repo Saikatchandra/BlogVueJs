@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mb-5 mb-lg-0">
-                    <div class="blog_left_sidebar"> 
+                    <div class="blog_left_sidebar">      {{this.$route.params.catId}}
                         <article class="blog_item" v-for="post in blogpost">
                             <div class="blog_item_img">
                                 <img class="card-img rounded-0" :src="`uploadImage/${post.photo}`" alt="" height="200">
@@ -100,13 +100,13 @@
          methods:{
               getpostbyCat(){
 
-              	// if($this.route.params.catId != null){
- 					 this.$store.dispatch('getcatbyId',$this.route.params.catId);
-				 // } else {
-				 	 // this.$store.dispatch('getblogPost');
+              	if(this.$route.params.id != null){
+ 					 this.$store.dispatch('getcatbyId',this.$route.params.id);
+				 } else {
+				 	 this.$store.dispatch('getblogPost');
 				 }
 
-              // }
+              }
          },
          watch:{
          	$route(to,from){

@@ -25,11 +25,11 @@ class BlogController extends Controller
     	$categories = Category::all();
          return response()->json([
             'categories' => $categories
-         ]);
+         ],200);
     }
 
     public function get_post_by_catId($id){
-       $posts = Post::with('user','category')->where('cat_id',$id)->orderBy('id','desc')->get();
+       $posts = Post::with('user','category')->where('cat_id',$id)->get();
        return response()->json([
             'posts'=> $posts
     	],200);

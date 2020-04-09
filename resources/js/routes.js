@@ -59,7 +59,7 @@ export const routes = [
     component: SingleBlog
     },
      { 
-    path: '/categories/:catId', 
+    path: '/categories/:id', 
     component: BlogPost
-    },
+    }
 ]
