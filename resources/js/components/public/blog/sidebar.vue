@@ -22,86 +22,53 @@
                         <aside class="single_sidebar_widget post_category_widget">
                             <h4 class="widget_title">Category</h4>
                             <ul class="list cat-list">
-                                <li>
+                                <li v-for="cat in categories">
                                     <a href="#" class="d-flex">
-                                        <p>Resaurant food</p>
+                                        <p>{{cat.cat_name}}</p>
                                         <p>(37)</p>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Travel news</p>
-                                        <p>(10)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Modern technology</p>
-                                        <p>(03)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Product</p>
-                                        <p>(11)</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Inspiration</p>
-                                        <p>21</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="d-flex">
-                                        <p>Health Care (21)</p>
-                                        <p>09</p>
-                                    </a>
-                                </li>
+                                
                             </ul>
                         </aside>
 
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">Recent Post</h3>
-                            <div class="media post_item">
-                                <img src="img/post/post_1.png" alt="post">
+                            <div class="media post_item" v-for="(post,index) in blogpost" v-if="index<5">
+                                <img :src="`uploadImage/${post.photo}`" alt="post">
                                 <div class="media-body">
                                     <a href="single-blog.html">
-                                        <h3>From life was you fish...</h3>
+                                        <h3>{{post.title | shortLength(15,"...")}}</h3>
                                     </a>
-                                    <p>January 12, 2019</p>
+                                    <!-- <p>{{post.created_at | timeFormat}}</p> -->
                                 </div>
                             </div>
-                            <div class="media post_item">
-                                <img src="img/post/post_2.png" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>The Amazing Hubble</h3>
-                                    </a>
-                                    <p>02 Hours ago</p>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <img src="img/post/post_3.png" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>Astronomy Or Astrology</h3>
-                                    </a>
-                                    <p>03 Hours ago</p>
-                                </div>
-                            </div>
-                            <div class="media post_item">
-                                <img src="img/post/post_4.png" alt="post">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>Asteroids telescope</h3>
-                                    </a>
-                                    <p>01 Hours ago</p>
-                                </div>
-                            </div>
+                           
                         </aside>
                         
                     </div>
                 </div>
 	</span>
 </template>
+
+<script>
+    export default{
+        name: "sidebar",
+        
+        mounted(){
+           this.$store.dispatch('allCategories')
+            this.$store.dispatch('getblogPost');
+        },
+        computed:{
+            categories(){
+                return this.$store.getters.getallcats
+            },
+            blogpost(){
+                return this.$store.getters.getblogpost
+              }
+        },
+        methods:{
+
+        }
+    }
+</script>

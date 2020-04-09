@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 class BlogController extends Controller
 {
@@ -18,5 +19,12 @@ class BlogController extends Controller
         return response()->json([
              'post'=>$post
         ],200);
+    }
+
+    public function get_all_category(){
+    	$categories = Category::all();
+         return response()->json([
+            'categories' => $categories
+         ]);
     }
 }
