@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
-    <title>winter</title>
+    <title>Bolg-VueJs</title>
     <link rel="icon" href="{{asset('img/public/img/favicon.png')}}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('img/public/css/bootstrap.min.css')}}">
@@ -146,7 +146,7 @@
                         <ul class="list-unstyled">
                             <li><a href="#">200, Green block, NewYork</a></li>
                             <li><a href="#">+10 456 267 1678</a></li>
-                            <li><span>contact89@winter.com</span></li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                 <div class="col-lg-12">
                     <div class="copyright_text">
                         <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
                     </div>
                 </div>
